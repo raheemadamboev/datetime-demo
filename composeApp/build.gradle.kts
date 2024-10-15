@@ -55,6 +55,9 @@ kotlin {
 
             // datetime
             implementation(libs.datetime)
+
+            // collections
+            implementation(libs.collections)
         }
 
         desktopMain.dependencies {

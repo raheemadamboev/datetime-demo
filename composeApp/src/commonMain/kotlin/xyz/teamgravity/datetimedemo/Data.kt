@@ -1,5 +1,7 @@
 package xyz.teamgravity.datetimedemo
 
+import kotlinx.collections.immutable.ImmutableList
+import kotlinx.collections.immutable.toImmutableList
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.currentCoroutineContext
 import kotlinx.coroutines.delay
@@ -33,7 +35,7 @@ object Data {
         year()
     }
 
-    val data: Flow<List<TimeModel>> = flow {
+    val data: Flow<ImmutableList<TimeModel>> = flow {
         while (currentCoroutineContext().isActive) {
             val data = City.entries.map { city ->
                 val time = Clock.System.now().toLocalDateTime(city.timezone)
@@ -42,7 +44,7 @@ object Data {
                     time = time.format(FORMAT_TIME),
                     date = time.format(FORMAT_DATE)
                 )
-            }
+            }.toImmutableList()
             emit(data)
             delay(1.seconds)
         }
