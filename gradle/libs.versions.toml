@@ -1,0 +1,24 @@
+[versions]
+
+compose-activity = "1.9.2"
+datetime = "0.6.0"
+
+kotlin = "2.0.20"
+android = "8.6.1"
+compose = "1.6.11"
+
+sdk-min = "24"
+sdk-compile = "34"
+sdk-target = "34"
+
+[libraries]
+
+compose-activity = { group = "androidx.activity", name = "activity-compose", version.ref = "compose-activity" }
+datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "datetime" }
+
+[plugins]
+
+kotlin = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
+android = { id = "com.android.application", version.ref = "android" }
+compose = { id = "org.jetbrains.compose", version.ref = "compose" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
